@@ -4,7 +4,6 @@ let col1 = [];
 let col2 = [];
 let score = 0;
 
-
 function sortData(data) {
   let rows = data.split("\n");
   rows.forEach((row) => {
@@ -34,18 +33,14 @@ async function getData() {
   }
   return testData;
 }
+
 getData().then((data) => {
   sortData(data);
 
   for (let i = 0; i < col1.length; i++) {
-    
-
     let count = getSimilarityScore(col1[i], col2);
-    console.log(count);
-    
     score = score + (col1[i] * count);
   }
 
   console.log(score);
-  
 });
